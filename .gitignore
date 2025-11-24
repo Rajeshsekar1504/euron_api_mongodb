@@ -1,0 +1,7 @@
+__pycache__/
+
+# Don' track env variables
+.env
+
+# Dont track virtual environe
+myenv/
