@@ -1,5 +1,5 @@
 from fastapi import FastAPI,HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson import ObjectId
 import os
@@ -17,7 +17,12 @@ app = FastAPI()
 
 class eurondata(BaseModel):
     name: str
-    phone: int
+    phone: int = Field(
+        ...,
+        ge=6000000000,
+        le=9999999999,
+        description="10-digit mobile number"
+    )
     city: str
     course: str
 
